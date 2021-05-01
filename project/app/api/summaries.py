@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi import APIRouter, HTTPException
 
 from app.api import crud
@@ -23,3 +25,7 @@ async def create_summary(payload: SummaryPayloadSchema) -> SummaryResponseSchema
         "url": payload.url
     }
     return response_object
+
+@router.get("/", response_model=List[SummarySchema])
+async def read_all_summaries() -> List[SummarySchema]:
+    return await crud.get_all()
