@@ -8,12 +8,17 @@ fastapi = "*"
 uvicorn = "*"
 asyncpg = "*"
 tortoise-orm = "*"
+gunicorn = "*"
 
 [dev-packages]
 pytest = "*"
 requests = "*"
 pytest-docker = "*"
 docker-compose = "*"
+pytest-cov = "*"
+flake8 = "*"
+black = "==20.8b1"
+isort = "*"
 
 [requires]
 python_version = "3.9"
