@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 fastapi = "*"
 uvicorn = "*"
+asyncpg = "*"
+tortoise-orm = "*"
 
 [dev-packages]
 
