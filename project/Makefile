@@ -1,5 +1,6 @@
 test:
-	pipenv run pytest --cov=. tests
+	pipenv run pytest -k "not unit"  --cov=. tests
+	pipenv run pytest -k "unit" -n auto
 
 style:
 	pipenv run black .

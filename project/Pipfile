@@ -19,6 +19,7 @@ pytest-cov = "*"
 flake8 = "*"
 black = "==20.8b1"
 isort = "*"
+pytest-xdist = "*"
 
 [requires]
 python_version = "3.8"
