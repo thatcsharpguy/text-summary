@@ -12,9 +12,14 @@ RUN apt-get update && \
 
 # install python dependencies
 COPY Pipfile Pipfile.lock ./
+RUN apt-get update && \
+    apt-get -qy full-upgrade && \
+    apt-get install -qy curl && \
+    curl -sSL https://get.docker.com/ | sh
+
 RUN pip install --upgrade pip && \
     pip install pipenv && \
-    pipenv install --ignore-pipfile --deploy --system
+    pipenv install --dev --ignore-pipfile --deploy --system
 
 # add app
 COPY . .
