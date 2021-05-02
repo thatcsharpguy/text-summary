@@ -9,6 +9,7 @@ uvicorn = "*"
 asyncpg = "*"
 tortoise-orm = "*"
 gunicorn = "*"
+newspaper3k = "*"
 
 [dev-packages]
 pytest = "*"

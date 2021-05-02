@@ -5,6 +5,7 @@ import pytest
 from starlette.testclient import TestClient
 from tortoise.contrib.fastapi import register_tortoise
 
+from app.api import summaries
 from app.config import Settings, get_settings
 from app.main import create_application
 
@@ -38,6 +39,14 @@ def db_url(docker_ip, docker_services):
     url = f"postgres://postgres:postgres@{docker_ip}:{port}/{db_name}"
     time.sleep(2)
     return url
+
+
+@pytest.fixture
+def patch_summary(monkeypatch):
+    def mock_generate_summary(summary_id, url):
+        return "summary"
+
+    yield monkeypatch.setattr(summaries, "generate_summary", mock_generate_summary)
 
 
 @pytest.fixture(scope="module")
